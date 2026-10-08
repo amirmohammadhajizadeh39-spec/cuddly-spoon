@@ -1,0 +1,293 @@
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>بانک نمونه سؤالات متوسطه اول</title>
+<meta name="description" content="نمونه سؤالات امتحانی پایه هفتم، هشتم و نهم همراه با پاسخ برای تمرین و آمادگی امتحانات.">
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: Tahoma, Arial, sans-serif;
+  background: #f1f5f9;
+  color: #172033;
+  line-height: 2;
+}
+
+header {
+  background: #123b70;
+  color: white;
+  padding: 25px 15px;
+  text-align: center;
+}
+
+header h1 { margin: 0; font-size: 25px; }
+header p { margin-bottom: 0; color: #dbeafe; }
+
+main {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+}
+
+.panel {
+  background: white;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 15px;
+  box-shadow: 0 3px 12px #0000000d;
+}
+
+h2 { color: #123b70; font-size: 21px; }
+
+select, input, button {
+  font-family: inherit;
+  font-size: 15px;
+  padding: 12px;
+  border-radius: 9px;
+}
+
+select, input {
+  width: 100%;
+  border: 1px solid #cbd5e1;
+  background: white;
+  margin: 5px 0 15px;
+}
+
+button {
+  border: none;
+  background: #1769aa;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover { background: #104c80; }
+
+.question {
+  padding: 15px 0;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.question:last-child { border-bottom: none; }
+
+.question p { font-weight: bold; }
+
+.answer {
+  display: none;
+  background: #ecfdf5;
+  border-right: 4px solid #16a34a;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 7px;
+}
+
+.small {
+  font-size: 13px;
+  color: #64748b;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  color: #64748b;
+}
+
+@media(max-width: 500px) {
+  main { padding: 10px; }
+  .panel { padding: 15px; }
+  header h1 { font-size: 21px; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>📚 بانک نمونه سؤالات امتحانی</h1>
+  <p>متوسطه اول | پایه هفتم، هشتم و نهم</p>
+</header>
+
+<main>
+
+  <div class="panel">
+    <h2>🔎 پیدا کردن نمونه سؤال</h2>
+
+    <label for="grade">پایه تحصیلی:</label>
+    <select id="grade">
+      <option value="7">هفتم</option>
+      <option value="8">هشتم</option>
+      <option value="9">نهم</option>
+    </select>
+
+    <label for="subject">درس:</label>
+    <select id="subject">
+      <option value="math">ریاضی</option>
+      <option value="science">علوم</option>
+      <option value="study">مطالعات اجتماعی</option>
+      <option value="persian">فارسی</option>
+    </select>
+
+    <button onclick="showQuestions()">نمایش نمونه سؤالات</button>
+  </div>
+
+  <div class="panel">
+    <h2 id="resultTitle">نمونه سؤالات ریاضی هفتم</h2>
+    <p class="small">برای دیدن پاسخ هر سؤال، روی دکمه «نمایش پاسخ» بزن.</p>
+    <div id="questions"></div>
+  </div>
+
+</main>
+
+<footer>
+  بانک نمونه سؤالات متوسطه اول | موفق باشی! 🌟
+</footer>
+
+<script>
+const data = {
+  7: {
+    math: [
+      ["حاصل ۱۲ + ۸ × ۲ را حساب کنید.", "۲۸؛ ابتدا ضرب انجام می‌شود."],
+      ["عدد منفی ۵ را با علامت ریاضی بنویسید.", "۵- یا ‎−۵"],
+      ["محیط مربعی با ضلع ۴ سانتی‌متر چقدر است؟", "۱۶ سانتی‌متر؛ ۴ × ۴"],
+      ["کسر ۲/۴ را ساده کنید.", "۱/۲"],
+      ["اگر x + ۳ = ۱۰ باشد، x چند است؟", "x = ۷"]
+    ],
+    science: [
+      ["کوچک‌ترین واحد سازنده مواد چیست؟", "اتم، یکی از واحدهای سازنده مواد است."],
+      ["سه حالت اصلی ماده را نام ببرید.", "جامد، مایع و گاز."],
+      ["گیاهان برای فتوسنتز به چه چیزهایی نیاز دارند؟", "نور، آب، دی‌اکسید کربن و مواد لازم برای فرایند."],
+      ["دماسنج برای اندازه‌گیری چه چیزی است؟", "دما."],
+      ["نیرو می‌تواند چه اثری بر جسم داشته باشد؟", "می‌تواند حرکت، سرعت، جهت یا شکل جسم را تغییر دهد."]
+    ],
+    study: [
+      ["نقشه چیست؟", "نمایش کوچک‌شده سطح زمین یا بخشی از آن روی یک سطح."],
+      ["چرا به قانون نیاز داریم؟", "برای نظم، حفظ حقوق افراد و زندگی بهتر در جامعه."],
+      ["دو مورد از منابع طبیعی را نام ببرید.", "آب و خاک."],
+      ["خانواده چه نقشی در زندگی دارد؟", "مراقبت، تربیت و حمایت از اعضا."],
+      ["جهت‌های اصلی جغرافیایی را نام ببرید.", "شمال، جنوب، شرق و غرب."]
+    ],
+    persian: [
+      ["اسم چیست؟", "کلمه‌ای که نام شخص، حیوان، مکان یا چیز را بیان می‌کند."],
+      ["مترادف کلمه شاد چیست؟", "خوشحال."],
+      ["مخالف کلمه تاریک چیست؟", "روشن."],
+      ["فعل چه چیزی را نشان می‌دهد؟", "انجام کار یا روی دادن حالت در زمان."],
+      ["یک جمله پرسشی بنویسید.", "امروز چه روزی است؟"]
+    ]
+  },
+
+  8: {
+    math: [
+      ["حاصل ۳² + ۴ را به دست آورید.", "۱۳؛ زیرا ۳² برابر ۹ است."],
+      ["اگر ۲x = ۱۸ باشد، x چند است؟", "x = ۹"],
+      ["جذر ۸۱ چند است؟", "۹"],
+      ["مجموع زاویه‌های داخلی مثلث چند درجه است؟", "۱۸۰ درجه."],
+      ["حاصل ۳/۴ + ۱/۴ چیست؟", "۱"]
+    ],
+    science: [
+      ["وظیفه گلبول‌های قرمز چیست؟", "حمل اکسیژن در خون."],
+      ["واحد اندازه‌گیری نیرو چیست؟", "نیوتون."],
+      ["تفاوت تغییر فیزیکی و شیمیایی چیست؟", "در تغییر شیمیایی ماده جدیدی تشکیل می‌شود؛ در تغییر فیزیکی معمولاً نه."],
+      ["الکتریسیته ساکن چیست؟", "تجمع بارهای الکتریکی روی سطح جسم."],
+      ["وظیفه دستگاه تنفس چیست؟", "دریافت اکسیژن و دفع دی‌اکسید کربن."]
+    ],
+    study: [
+      ["قوه مقننه چه وظیفه‌ای دارد؟", "قانون‌گذاری."],
+      ["چرا باید در مصرف آب صرفه‌جویی کنیم؟", "چون آب شیرین محدود و برای زندگی ضروری است."],
+      ["دو عامل مؤثر بر آب‌وهوا را نام ببرید.", "عرض جغرافیایی و ارتفاع از سطح دریا."],
+      ["شهروند مسئول چه کسی است؟", "کسی که حقوق دیگران و قوانین را رعایت می‌کند."],
+      ["میراث فرهنگی چیست؟", "آثار و ارزش‌های فرهنگی به‌جامانده از گذشته."]
+    ],
+    persian: [
+      ["تشبیه چیست؟", "مانند کردن چیزی به چیز دیگر به دلیل یک ویژگی مشترک."],
+      ["مخالف واژه امید چیست؟", "ناامیدی."],
+      ["قافیه چیست؟", "واژه‌های هم‌آوا در پایان مصراع‌ها یا بیت‌ها."],
+      ["یک جمله با فعل گذشته بنویسید.", "من دیروز کتاب خواندم."],
+      ["منظور از واژه هم‌خانواده چیست؟", "واژه‌هایی که ریشه مشترک دارند."]
+    ]
+  },
+
+  9: {
+    math: [
+      ["حاصل (x + ۲)(x + ۳) را باز کنید.", "x² + ۵x + ۶"],
+      ["معادله ۳x − ۶ = ۱۲ را حل کنید.", "x = ۶"],
+      ["وتر مثلث قائم‌الزاویه با ضلع‌های ۳ و ۴ چند است؟", "۵؛ طبق قضیه فیثاغورس."],
+      ["شیب خط y = ۲x + ۱ چقدر است؟", "۲"],
+      ["احتمال آمدن عدد زوج در پرتاب یک تاس سالم چقدر است؟", "۳/۶ = ۱/۲"]
+    ],
+    science: [
+      ["وظیفه DNA چیست؟", "ذخیره اطلاعات ژنتیکی."],
+      ["واحد اندازه‌گیری جریان الکتریکی چیست؟", "آمپر."],
+      ["واکنش شیمیایی چیست؟", "فرایندی که طی آن مواد اولیه به مواد جدید تبدیل می‌شوند."],
+      ["صفحات سنگ‌کره چه حرکتی دارند؟", "نسبت به یکدیگر حرکت می‌کنند و این حرکت می‌تواند باعث زمین‌لرزه و آتشفشان شود."],
+      ["ژن چیست؟", "بخشی از DNA که اطلاعات وراثتی را در بر دارد."]
+    ],
+    study: [
+      ["سه قوه اصلی کشور را نام ببرید.", "قوه مقننه، مجریه و قضائیه."],
+      ["مشروطه به چه معناست؟", "حکومتی که اختیارات آن بر اساس قانون محدود و تنظیم می‌شود."],
+      ["چرا حفظ منابع طبیعی مهم است؟", "برای پایداری محیط زیست و نیازهای نسل‌های آینده."],
+      ["مهاجرت چیست؟", "جابه‌جایی محل زندگی از یک مکان به مکان دیگر."],
+      ["قانون اساسی چیست؟", "قانون بنیادینی که ساختار حکومت و حقوق و وظایف اصلی را تعیین می‌کند."]
+    ],
+    persian: [
+      ["آرایه تشخیص چیست؟", "نسبت دادن ویژگی انسان به اشیا یا پدیده‌های غیرانسانی."],
+      ["مفهوم کنایه چیست؟", "بیان غیرمستقیم یک منظور."],
+      ["نهاد جمله چیست؟", "بخشی که درباره آن خبری داده می‌شود."],
+      ["یک جمله با فعل مجهول بنویسید.", "نامه نوشته شد."],
+      ["تفاوت شعر و نثر چیست؟", "شعر معمولاً وزن یا آهنگ ادبی دارد؛ نثر ساختار معمول نوشتار را دارد."]
+    ]
+  }
+};
+
+const names = {
+  math: "ریاضی",
+  science: "علوم",
+  study: "مطالعات اجتماعی",
+  persian: "فارسی"
+};
+
+function showQuestions() {
+  const grade = document.getElementById("grade").value;
+  const subject = document.getElementById("subject").value;
+  const list = data[grade][subject];
+
+  document.getElementById("resultTitle").textContent =
+    "نمونه سؤالات " + names[subject] + " پایه " + grade;
+
+  const container = document.getElementById("questions");
+  container.innerHTML = "";
+
+  list.forEach((item, index) => {
+    const div = document.createElement("div");
+    div.className = "question";
+
+    const title = document.createElement("p");
+    title.textContent = (index + 1) + ". " + item[0];
+
+    const button = document.createElement("button");
+    button.textContent = "نمایش پاسخ";
+    button.onclick = function() {
+      answer.hidden = !answer.hidden;
+      button.textContent = answer.hidden ? "نمایش پاسخ" : "پنهان کردن پاسخ";
+    };
+
+    const answer = document.createElement("div");
+    answer.className = "answer";
+    answer.textContent = "پاسخ: " + item[1];
+    answer.hidden = true;
+
+    div.appendChild(title);
+    div.appendChild(button);
+    div.appendChild(answer);
+    container.appendChild(div);
+  });
+}
+
+showQuestions();
+</script>
+
+</body>
+</html>
